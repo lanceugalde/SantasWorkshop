@@ -1,0 +1,36 @@
+﻿@model SantasWorkshop.Models.Toy
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Toy</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RecommendedAge)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RecommendedAge)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MadeIn.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MadeIn.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ToyId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

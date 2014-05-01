@@ -1,0 +1,36 @@
+﻿@model SantasWorkshop.Models.Present
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Present</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Contents.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Contents.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Wrapping.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Wrapping.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Recipient.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Recipient.FirstName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PresentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

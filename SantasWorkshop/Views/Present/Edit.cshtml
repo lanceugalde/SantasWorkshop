@@ -1,0 +1,54 @@
+﻿@model SantasWorkshop.Models.Present
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Present</legend>
+
+        @Html.HiddenFor(model => model.PresentId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ToyId, "Contents")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ToyId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ToyId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WrappingPaperId, "Wrapping")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("WrappingPaperId", String.Empty)
+            @Html.ValidationMessageFor(model => model.WrappingPaperId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.KidId, "Recipient")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("KidId", String.Empty)
+            @Html.ValidationMessageFor(model => model.KidId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

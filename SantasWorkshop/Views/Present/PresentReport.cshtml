@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SantasWorkshop.Models.Present>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script>
+    // Set up the chart
+    function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+
+    var dater = []
+    var types = [];
+    @foreach (var item in Model) {
+        @:types.push("@item.Contents.MadeIn.ProductionType");
+    }
+    console.log(uniqueTypes);
+    var uniqueTypes = types.filter(onlyUnique);
+
+    for (var i = 0; i < uniqueTypes.length; i++) {
+        var counter = 0;
+        var typeToCheckFor = uniqueTypes[i];
+        for (var x = 0; x < types.length; x++) {
+            if (types[x] == typeToCheckFor) {
+                counter++;
+            }
+        }
+        dater.push(counter);
+    }
+
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container',
+            type: 'column',
+        },
+        title: {
+            text: 'Popular present types'
+        },
+        subtitle: {
+            text: 'These kids sure like bikes'
+        },
+        xAxis: {
+            categories: uniqueTypes
+        },
+        series: [{
+            data: dater
+        }]
+    });
+
+    Array.prototype.contains = function (v) {
+        for (var i = 0; i < this.length; i++) {
+            if (this[i] === v) return true;
+        }
+        return false;
+    };
+
+    Array.prototype.unique = function () {
+        var arr = [];
+        for (var i = 0; i < this.length; i++) {
+            if (!arr.contains(this[i])) {
+                arr.push(this[i]);
+            }
+        }
+        return arr;
+    }
+</script>
+

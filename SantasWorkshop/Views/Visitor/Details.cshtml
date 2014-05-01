@@ -1,0 +1,57 @@
+﻿@model SantasWorkshop.Models.Visitor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Visitor</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MiddleInitial)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MiddleInitial)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Home.StreetAddress)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Home.StreetAddress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LastVisited.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastVisited.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.VisitorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
